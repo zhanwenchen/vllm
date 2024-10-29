@@ -115,8 +115,8 @@ define_gpu_extension_target(
     SOURCES ${VLLM_EXT_SRC}
     LIBRARIES ${LIBS}
     COMPILE_FLAGS ${CXX_COMPILE_FLAGS}
-    USE_SABI 3
-    WITH_SOABI
+    # USE_SABI 3
+    # WITH_SOABI
 )
 
 message(STATUS "Enabling C extension.")
