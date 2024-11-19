@@ -58,7 +58,7 @@ def is_ninja_available() -> bool:
 class CMakeExtension(Extension):
 
     def __init__(self, name: str, cmake_lists_dir: str = '.', **kwa) -> None:
-        super().__init__(name, sources=[], py_limited_api=True, **kwa)
+        super().__init__(name, sources=[], py_limited_api=False, **kwa)
         self.cmake_lists_dir = os.path.abspath(cmake_lists_dir)
 
 

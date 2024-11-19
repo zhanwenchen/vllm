@@ -17,6 +17,7 @@ include_directories("${CMAKE_SOURCE_DIR}/csrc")
 # Check the compile flags
 #
 list(APPEND CXX_COMPILE_FLAGS
+    "-march=native"
     "-fopenmp"
     "-mf16c"
     "-DVLLM_CPU_EXTENSION")
@@ -112,7 +113,7 @@ if (AVX512_FOUND AND NOT AVX512_DISABLED)
     set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
     FetchContent_MakeAvailable(oneDNN)
-    
+
     list(APPEND LIBS dnnl)
 endif()
 
@@ -149,8 +150,6 @@ define_gpu_extension_target(
     SOURCES ${VLLM_EXT_SRC}
     LIBRARIES ${LIBS}
     COMPILE_FLAGS ${CXX_COMPILE_FLAGS}
-    USE_SABI 3
-    WITH_SOABI
 )
 
 message(STATUS "Enabling C extension.")

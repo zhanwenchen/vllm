@@ -391,8 +391,7 @@ define_gpu_extension_target(
   COMPILE_FLAGS ${VLLM_GPU_FLAGS}
   ARCHITECTURES ${VLLM_GPU_ARCHES}
   INCLUDE_DIRECTORIES ${CUTLASS_INCLUDE_DIR}
-  USE_SABI 3
-  WITH_SOABI)
+)
 
 # If CUTLASS is compiled on NVCC >= 12.5, it by default uses
 # cudaGetDriverEntryPointByVersion as a wrapper to avoid directly calling the
@@ -446,8 +445,7 @@ define_gpu_extension_target(
   SOURCES ${VLLM_MOE_EXT_SRC}
   COMPILE_FLAGS ${VLLM_GPU_FLAGS}
   ARCHITECTURES ${VLLM_GPU_ARCHES}
-  USE_SABI 3
-  WITH_SOABI)
+)
 
 if(VLLM_GPU_LANG STREQUAL "HIP")
   #
@@ -464,8 +462,7 @@ if(VLLM_GPU_LANG STREQUAL "HIP")
     SOURCES ${VLLM_ROCM_EXT_SRC}
     COMPILE_FLAGS ${VLLM_GPU_FLAGS}
     ARCHITECTURES ${VLLM_GPU_ARCHES}
-    USE_SABI 3
-    WITH_SOABI)
+)
 endif()
 
 # vllm-flash-attn currently only supported on CUDA
